@@ -13,6 +13,7 @@
   --gold:#d7b56d;
   --cream:#fff4dc;
 }
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body {
@@ -64,6 +65,7 @@ p { max-width:650px; margin:12px auto; }
 .event { padding:25px 18px; background:#fffaf0; border:1px solid #c5a15f; }
 .event .time { color:#916629; font-size:1.1rem; }
 .family { padding:20px 10px; border-top:1px solid var(--gold); }
+.family-name { font-family:"Great Vibes", cursive; font-size:1.65rem; font-weight:normal; line-height:1.5; margin:8px auto; }
 .photo {
   min-height:210px; display:grid; place-items:center;
   padding:20px; border:1px solid var(--gold);
@@ -220,13 +222,13 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
     <div class="families">
       <div class="family">
         <p class="gold">Groom's Parents</p>
-        <h3>Fr. Koshy Mathew</h3>
-        <p>and Rachel P Jose</p>
+        <p class="family-name">Rachel P Jose</p>
+        <p class="family-name">and Fr. Koshy Mathew</p>
       </div>
       <div class="family">
         <p class="gold">Bride's Parents</p>
-        <h3>Late K. A. Abraham</h3>
-        <p>and Jessy Abraham</p>
+        <p class="family-name">Jessy Abraham</p>
+        <p class="family-name">and Late K. A. Abraham</p>
       </div>
     </div>
     <div class="cross">✝</div>
@@ -238,24 +240,15 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
   <div class="inner">
     <p class="eyebrow">Our memories</p>
     <h2>A Little Glimpse of Us</h2>
-    <p>Our photographs will be added here soon.</p>
+    <p>A few moments from our journey together.</p>
     <div class="photos">
-      <div class="photo">✦ Couple Photo 1 ✦<br>Add your first photo later</div>
-      <div class="photo">✦ Couple Photo 2 ✦<br>Add your second photo later</div>
+      <div class="photo"><img src="assets/couple-1.jpg" alt="Vivek and Riya, photograph one" loading="lazy"></div>
+      <div class="photo"><img src="assets/couple-2.jpg" alt="Vivek and Riya, photograph two" loading="lazy"></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="rsvp">
-  <div class="inner">
-    <div class="cross">✝</div>
-    <p class="eyebrow">Kindly respond</p>
-    <h2>Will You Join Us?</h2>
-    <p>Your presence and prayers would mean so much to us.</p>
-    <p id="rsvpNote" class="gold">Our RSVP contact will be announced soon.</p>
-    <a id="rsvpBtn" class="btn" hidden target="_blank" rel="noopener">RSVP via WhatsApp</a>
-  </div>
-</section>
+
 
 <footer>
   <div class="cross">✝</div>
@@ -267,10 +260,6 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
 </main>
 
 <script>
-// Add the WhatsApp number later, including country code.
-// Example format: 919876543210
-const RSVP_WHATSAPP_NUMBER = "";
-
 // 13 January 2027 at 3:00 PM Indian Standard Time.
 const weddingTime = new Date("2027-01-13T09:30:00Z").getTime();
 
@@ -310,7 +299,7 @@ musicBtn.addEventListener("click", async () => {
       await music.play();
       musicBtn.textContent = "♫ Pause Music";
     } catch {
-      alert("Add your music file as assets/wedding-music.mp3 first.");
+      alert("Music could not be played. Check that assets/wedding-music.mp3 exists in your GitHub repository and that the filename matches exactly.");
     }
   } else {
     music.pause();
@@ -353,14 +342,6 @@ function startPetals() {
   }, 700);
 }
 
-const rsvpBtn = document.getElementById("rsvpBtn");
-const rsvpNote = document.getElementById("rsvpNote");
-if (/^\d{8,15}$/.test(RSVP_WHATSAPP_NUMBER)) {
-  const message = "Hello! I would like to RSVP for the wedding of Vivek Koshy Mathew and Riya Rachal Abraham on 13 January 2027.";
-  rsvpBtn.href = "https://wa.me/" + RSVP_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
-  rsvpBtn.hidden = false;
-  rsvpNote.textContent = "Please let us know if you will be joining us.";
-}
 </script>
 </body>
 </html>
