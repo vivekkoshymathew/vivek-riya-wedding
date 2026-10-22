@@ -72,7 +72,14 @@ p { max-width:650px; margin:12px auto; }
   background:linear-gradient(145deg,#70283c,#260b15);
   color:#f1dfc2;
 }
-.photo img { max-width:100%; height:auto; }
+.photo img {
+  display:block;
+  width:100%;
+  max-height:520px;
+  height:auto;
+  object-fit:contain;
+  border-radius:2px;
+}
 .music {
   position:fixed; right:14px; bottom:14px; z-index:20;
   background:var(--wine); color:var(--gold);
@@ -242,8 +249,12 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
     <h2>A Little Glimpse of Us</h2>
     <p>A few moments from our journey together.</p>
     <div class="photos">
-      <div class="photo"><img src="assets/couple-1.jpg" alt="Vivek and Riya, photograph one" loading="lazy"></div>
-      <div class="photo"><img src="assets/couple-2.jpg" alt="Vivek and Riya, photograph two" loading="lazy"></div>
+      <div class="photo">
+        <img src="./assets/couple%201.jpeg" alt="Vivek and Riya, photograph one" loading="lazy">
+      </div>
+      <div class="photo">
+        <img src="./assets/couple%202.jpeg" alt="Vivek and Riya, photograph two" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
