@@ -30,7 +30,34 @@ h3 { font-weight:normal; font-size:1.5rem; }
 p { max-width:650px; margin:12px auto; }
 .gold { color:var(--gold); }
 .eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:3px; font-size:.75rem; }
-.cross { color:var(--gold); font-size:3rem; }
+.cross {
+  position:relative;
+  width:38px;
+  height:48px;
+  margin:0 auto 12px;
+  font-size:0;
+  flex-shrink:0;
+}
+.cross::before,
+.cross::after {
+  content:"";
+  position:absolute;
+  display:block;
+  background:var(--gold);
+  border-radius:1px;
+}
+.cross::before {
+  width:6px;
+  height:36px;
+  top:5px;
+  left:16px;
+}
+.cross::after {
+  width:24px;
+  height:5px;
+  top:15px;
+  left:7px;
+}
 .btn {
   display:inline-block; padding:12px 22px; margin:8px;
   border:1px solid var(--gold); border-radius:3px;
@@ -72,14 +99,7 @@ p { max-width:650px; margin:12px auto; }
   background:linear-gradient(145deg,#70283c,#260b15);
   color:#f1dfc2;
 }
-.photo img {
-  display:block;
-  width:100%;
-  max-height:520px;
-  height:auto;
-  object-fit:contain;
-  border-radius:2px;
-}
+.photo img { display:block; width:100%; max-width:100%; max-height:520px; height:auto; object-fit:contain; border-radius:2px; }
 .music {
   position:fixed; right:14px; bottom:14px; z-index:20;
   background:var(--wine); color:var(--gold);
@@ -117,6 +137,26 @@ p { max-width:650px; margin:12px auto; }
   color:var(--gold); display:grid; place-items:center;
   transition:opacity .3s;
 }
+.seal::before,
+.seal::after {
+  content:"";
+  position:absolute;
+  display:block;
+  background:var(--gold);
+  border-radius:1px;
+}
+.seal::before {
+  width:5px;
+  height:24px;
+  left:21px;
+  top:11px;
+}
+.seal::after {
+  width:18px;
+  height:5px;
+  left:14px;
+  top:17px;
+}
 .envelope.open .flap { transform:rotateX(180deg); }
 .envelope.open .letter { transform:translateY(-55px); }
 .envelope.open .seal { opacity:0; }
@@ -141,14 +181,14 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
 
 <div id="intro">
   <div class="envelope-wrap">
-    <div class="cross">✝</div>
+    <div class="cross" role="img" aria-label="Christian cross"></div>
     <p class="eyebrow">A special invitation</p>
     <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open invitation">
       <div class="letter">
         <div><div style="font-size:2rem">V &amp; R</div><div>YOU ARE INVITED</div></div>
       </div>
       <div class="flap"></div>
-      <div class="seal">✝</div>
+      <div class="seal" role="img" aria-label="Christian cross"></div>
     </div>
     <p>Tap to open your invitation</p>
     <button class="btn btn-outline" id="openBtn">Open Invitation ✦</button>
@@ -163,7 +203,7 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
 <main>
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="cross">✝</div>
+    <div class="cross" role="img" aria-label="Christian cross"></div>
     <p class="eyebrow">Together with their families</p>
     <p class="gold">Joyfully invite you to celebrate the marriage of</p>
     <h1>Vivek Koshy<br>Mathew</h1>
@@ -200,7 +240,7 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
     <p>With thankful hearts and God's blessings, our families invite you to join our celebration.</p>
     <div class="events">
       <div class="event">
-        <div class="cross">✝</div>
+        <div class="cross" role="img" aria-label="Christian cross"></div>
         <p class="eyebrow">Holy Matrimony</p>
         <h3>Church Ceremony</h3>
         <p class="time">3:00 PM IST</p>
@@ -238,7 +278,7 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
         <p class="family-name">and Late K. A. Abraham</p>
       </div>
     </div>
-    <div class="cross">✝</div>
+    <div class="cross" role="img" aria-label="Christian cross"></div>
     <p>With the love and blessings of our families, we invite you to share in our joy.</p>
   </div>
 </section>
@@ -249,12 +289,8 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
     <h2>A Little Glimpse of Us</h2>
     <p>A few moments from our journey together.</p>
     <div class="photos">
-      <div class="photo">
-        <img src="./assets/couple%201.jpeg" alt="Vivek and Riya, photograph one" loading="lazy">
-      </div>
-      <div class="photo">
-        <img src="./assets/couple%202.jpeg" alt="Vivek and Riya, photograph two" loading="lazy">
-      </div>
+      <div class="photo"><img src="./assets/couple%201.jpeg" alt="Vivek and Riya, photograph one" loading="lazy"></div>
+      <div class="photo"><img src="./assets/couple%202.jpeg" alt="Vivek and Riya, photograph two" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -262,7 +298,7 @@ footer { padding:35px 15px 85px; color:#e6d5bd; }
 
 
 <footer>
-  <div class="cross">✝</div>
+  <div class="cross" role="img" aria-label="Christian cross"></div>
   <p class="gold">Vivek &amp; Riya</p>
   <p>13 January 2027 · Kerala, India</p>
   <p>“What therefore God hath joined together, let not man put asunder.”</p>
